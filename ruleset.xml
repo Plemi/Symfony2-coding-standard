@@ -13,8 +13,11 @@
 
     # Structure
 
+    * Add a blank line before return statements;
+    * Define one class per file;
     * Declare class properties before methods;
     * Declare public methods first, then protected ones and finally private ones.
+    * Suffix interfaces with Interface;
     * Use namespaces for all classes;
     * Add PHPDoc blocks for all classes, methods, and functions;
     * The @package and @subpackage annotations are not used.
@@ -74,15 +77,18 @@
     <rule ref="PEAR.Functions.FunctionCallSignature.CloseBracketLine">
         <severity>0</severity>
     </rule>
-
+    <rule ref="Symfony2.Commenting.FunctionComment.ParameterCommentsNotAligned">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Symfony2.Commenting.FunctionComment.ParameterNamesNotAligned">
+        <severity>5</severity>
+    </rule>
     <rule ref="Symfony2.Commenting.FunctionComment.MissingParamComment">
         <severity>0</severity>
     </rule>
-
     <rule ref="Symfony2.Commenting.FunctionComment.SpacingBeforeTags">
         <severity>0</severity>
     </rule>
-
     <rule ref="Symfony2.Commenting.ClassComment.SpacingBeforeTags">
         <message>There should always be a description, followed by a blank line, before the tags of a class comment.</message>
     </rule>
