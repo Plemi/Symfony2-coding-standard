@@ -71,10 +71,15 @@ class Symfony2_Sniffs_Commenting_ClassCommentSniff extends PEAR_Sniffs_Commentin
                                         'allow_multiple' => false,
                                         'order_text'     => 'follows @package',
                                        ),
-                       'author'     => array(
+                       'link'       => array(
                                         'required'       => false,
                                         'allow_multiple' => true,
                                         'order_text'     => 'follows @subpackage (if used) or @package',
+                                       ),
+                       'author'     => array(
+                                        'required'       => false,
+                                        'allow_multiple' => true,
+                                        'order_text'     => 'follows @link (if used) or @subpackage',
                                        ),
                        'copyright'  => array(
                                         'required'       => false,
@@ -90,11 +95,6 @@ class Symfony2_Sniffs_Commenting_ClassCommentSniff extends PEAR_Sniffs_Commentin
                                         'required'       => false,
                                         'allow_multiple' => false,
                                         'order_text'     => 'follows @license',
-                                       ),
-                       'link'       => array(
-                                        'required'       => false,
-                                        'allow_multiple' => true,
-                                        'order_text'     => 'follows @version',
                                        ),
                        'see'        => array(
                                         'required'       => false,
@@ -113,6 +113,21 @@ class Symfony2_Sniffs_Commenting_ClassCommentSniff extends PEAR_Sniffs_Commentin
                                        ),
                 );
 
+    /**
+     * Disable the tag indent check
+     *
+     * @param string                                   $tagName    The name of the
+     *                                                             doc comment
+     *                                                             element.
+     * @param PHP_CodeSniffer_CommentParser_DocElement $tagElement The doc comment
+     *                                                             element.
+     *
+     * @return void
+     */
+    protected function getIndentation($tagName, $tagElement)
+    {
+        return 0;
+    }//end getIndentation()
 }//end class
 
 ?>
